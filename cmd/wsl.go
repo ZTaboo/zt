@@ -1,14 +1,12 @@
-/*
-Copyright © 2023 NAME HERE <EMAIL ADDRESS>
-*/
 package cmd
 
 import (
-	"zt/public"
 	s "zt/service"
 
 	"github.com/spf13/cobra"
 )
+
+var WslOpenStatus bool
 
 // wslCmd represents the wsl command
 var wslCmd = &cobra.Command{
@@ -29,5 +27,5 @@ func init() {
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:
 	// wslCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
-	wslCmd.Flags().BoolVarP(&public.WslOpenStatus, "open", "o", false, "打开wsl并进入当前目录")
+	wslCmd.Flags().BoolVarP(&WslOpenStatus, "open", "o", false, "打开wsl并进入当前目录")
 }

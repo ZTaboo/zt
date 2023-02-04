@@ -4,11 +4,11 @@ import (
 	"fmt"
 	"github.com/spf13/cobra"
 	"os/exec"
-	"zt/public"
 )
 
 func WslInit(cmd *cobra.Command, args []string) {
-	if public.WslOpenStatus {
+	f := cmd.Flag("open")
+	if f.Value.String() == "true" {
 		cmd := exec.Command("powershell", "wt -p \"Ubuntu-20.04\" -d .")
 		bytes, err := cmd.Output()
 		if err != nil {
@@ -17,6 +17,6 @@ func WslInit(cmd *cobra.Command, args []string) {
 			fmt.Println(string(bytes))
 		}
 	} else {
-		fmt.Println("请输入flags;使用-h查看帮助文档")
+		fmt.Println("请输入flag;使用-h查看帮助文档")
 	}
 }
